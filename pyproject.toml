@@ -1,0 +1,11 @@
+[project]
+name = "remote-finance-mcp-server"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "fastmcp>=2.12.2",
+    "mcp[cli]>=1.13.1",
+    "yfinance>=0.2.65",
+]
