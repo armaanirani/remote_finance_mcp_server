@@ -108,9 +108,4 @@ async def get_news(ticker: str) -> list[dict]:
     return formatted_news
 
 if __name__ == "__main__":
-    import os
-    
-    port = int(os.getenv("MCP_HTTP_PORT", "8001"))
-    host = os.getenv("MCP_HTTP_HOST", "127.0.0.1")
-    
-    mcp.run(transport="streamable-http", port=port, host=host)
+    mcp.run(transport="streamable-http")

@@ -19,16 +19,5 @@ COPY . .
 # Expose port 8001 (default for FastMCP HTTP server)
 EXPOSE 8001
 
-# Set environment variable for HTTP server
-ENV MCP_HTTP_PORT=8001
-ENV MCP_HTTP_HOST=0.0.0.0
-
-# Health check
-HEALTHCHECK --interval=30s --timeout=10s --start-period=5s --retries=3 \
-    CMD curl -f http://localhost:8001/health || exit 1
-
-# Install curl for health check
-RUN apt-get update && apt-get install -y curl && rm -rf /var/lib/apt/lists/*
-
 # Run the weather MCP server
 CMD ["uv", "run", "main.py"]
